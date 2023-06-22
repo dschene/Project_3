@@ -12,7 +12,7 @@ from torchvision.datasets import ImageFolder
 from datetime import datetime
 from sklearn.metrics import ConfusionMatrixDisplay
 
-path_to_testdata = '../data/No_background/Original/Test'
+path_to_testdata = '../data/Original_cropped_aug/Test'
 
 # transformation for getting the mean and std of the test set
 test_transforms_formeanstd = transforms.Compose([
@@ -31,6 +31,9 @@ mean, std = get_mean_and_std(test_loader_formeanstd)
 # defining transformations on test data
 test_transforms = transforms.Compose([
     transforms.Resize((224,224)),
+    # transforms.RandomHorizontalFlip(p=0.5),
+    # transforms.RandomVerticalFlip(p=0.5),
+    # transforms.RandomRotation(degrees=(30, 70)),
     transforms.ToTensor(),
     transforms.Normalize(mean, std)
 ])

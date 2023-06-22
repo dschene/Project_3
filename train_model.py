@@ -12,7 +12,7 @@ from project_modules.CNN import CNNModel
 from tqdm import tqdm
 
 # training data directory
-path_to_traindata = "../data/No_background/Original/Train"
+path_to_traindata = '../data/Original_cropped_aug/Train'
 
 # function for displaying an img
 def display_image_from_tensor(tensor):
@@ -62,12 +62,12 @@ train_transforms = transforms.Compose([
 # option 1: creating a custom dataset with the Dataset() class
 train_dataset_from_c = CustomDataset(path_to_traindata, train_transforms)
 # # making a DataLoader object for the training data
-train_dataloader_from_c = DataLoader(train_dataset_from_c, batch_size=32, shuffle=True)
+train_dataloader_from_c = DataLoader(train_dataset_from_c, batch_size=64, shuffle=True)
 
 # option 2: creating a dataset using ImageFolder() 
 train_dataset_from_f = ImageFolder(path_to_traindata, transform=train_transforms)
 # # making a DataLoader object for the training data
-train_dataloder_from_f = DataLoader(train_dataset_from_f, batch_size=32, shuffle=True)
+train_dataloder_from_f = DataLoader(train_dataset_from_f, batch_size=64, shuffle=True)
 
 # both variations have the same class-to-label mapping:
 (train_dataset_from_c.class_to_label == train_dataset_from_f.class_to_idx) # == True
@@ -78,7 +78,7 @@ apples_model = CNNModel(n_of_classes).to(set_device())
 
 # defining loss function and optimizer
 loss_function = nn.CrossEntropyLoss()
-optimizer = optim.Adam(apples_model.parameters(), lr=0.001)
+optimizer = optim.Adam(apples_model.parameters(), lr=0.0005)
 
 
 # function for training the model
@@ -125,7 +125,7 @@ def train_model_func(model, trainloader, criterion, optimizer, n_epochs):
 
 # run training
 if __name__ == "__main__":
-    train_model_func(apples_model, train_dataloader_from_c, loss_function, optimizer, 30)
+    train_model_func(apples_model, train_dataloader_from_c, loss_function, optimizer, 25)
 
     # store model in 'models' directory
     save_model_path = '../models/custom_model.pth'

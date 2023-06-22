@@ -8,7 +8,7 @@ from torchvision import transforms
 
 st.title('Apple batch evaluator')
 
-best_model_metrics = max(json.load(open('../models/models.json')), key=lambda x: x['Model accuracy'])
+best_model_metrics = max(json.load(open('../models/models.json')), key=lambda x: x['Timestamp'])
 
 model = torch.load('../models/resnet_model.pth')
 
@@ -40,7 +40,7 @@ def process_image(image_batch):
 
 
 
-st.subheader(f"Best performing model dates from {best_model_metrics['Timestamp']} and has an accuracy of {best_model_metrics['Model accuracy']}%")
+st.subheader(f"Latest model dates from {best_model_metrics['Timestamp']} and has an accuracy of {best_model_metrics['Model accuracy']}%")
 
 uploaded_files = st.file_uploader("Upload apple batch images", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 
