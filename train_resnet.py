@@ -44,7 +44,7 @@ train_data = ImageFolder(train_data_path, transform=train_transforms)
 train_loader = DataLoader(train_data, batch_size=50, shuffle=True)
 
 
-resnet18_model = resnet18(pretrained=False)
+resnet18_model = resnet18(pretrained=True)
 
 num_features_18 = resnet18_model.fc.in_features
 num_of_classes = len(train_data.class_to_idx)
@@ -62,7 +62,7 @@ loss_function = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # run training
-train_model_func(model, train_loader, loss_function, optimizer, 5)
+train_model_func(model, train_loader, loss_function, optimizer, 3)
 
 # save model
 save_model_path = f'../models/resnet_model.pth'

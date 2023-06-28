@@ -38,5 +38,5 @@ transformations_var = [
 
 if __name__ == "__main__":
 
-    apply_transforms('../data/Original_cropped_wo_28/Train', transformations_all, transformations_var)
+    apply_transforms('../data/Original_cropped_wo_28/Test', transformations_all, transformations_var)
 
