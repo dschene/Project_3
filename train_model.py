@@ -125,7 +125,7 @@ def train_model_func(model, trainloader, criterion, optimizer, n_epochs):
 
 # run training
 if __name__ == "__main__":
-    train_model_func(apples_model, train_dataloader_from_c, loss_function, optimizer, 10)
+    train_model_func(apples_model, train_dataloader_from_c, loss_function, optimizer, 15)
 
     # store model in 'models' directory
     save_model_path = '../models/custom_model.pth'

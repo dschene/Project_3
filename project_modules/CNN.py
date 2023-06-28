@@ -4,10 +4,10 @@ class CNNModel(nn.Module):
     def __init__(self, num_classes):
         super(CNNModel, self).__init__()
         self.num_classes = num_classes
-        self.conv1 = nn.Conv2d(3, 24, kernel_size=3, stride=1, padding=1)
-        self.conv2 = nn.Conv2d(24, 44, kernel_size=3, stride=1, padding=1)
-        self.fc1 = nn.Linear(44 * 56 * 56, 64)
-        self.fc2 = nn.Linear(64, 96)
+        self.conv1 = nn.Conv2d(3, 12, kernel_size=3, stride=1, padding=1)
+        self.conv2 = nn.Conv2d(12, 24, kernel_size=3, stride=1, padding=1)
+        self.fc1 = nn.Linear(24 * 56 * 56, 48)
+        self.fc2 = nn.Linear(48, 96)
         self.fc3 = nn.Linear(96, self.num_classes)
 
     def forward(self, x):
