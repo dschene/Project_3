@@ -391,5 +391,117 @@
             "Rot_Apple": 2,
             "Scab_Apple": 3
         }
+    },
+    {
+        "Model type": "custom",
+        "Timestamp": "2023-06-23 11:52:18.254244",
+        "Model accuracy": 66.39,
+        "Model architecture": "<bound method Module.state_dict of CNNModel(\n  (conv1): Conv2d(3, 12, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (conv2): Conv2d(12, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (fc1): Linear(in_features=75264, out_features=48, bias=True)\n  (fc2): Linear(in_features=48, out_features=96, bias=True)\n  (fc3): Linear(in_features=96, out_features=4, bias=True)\n)>",
+        "Test data": "../data/Original_cropped_aug_extended/Test",
+        "Number of classes": 4,
+        "Model mapping": {
+            "Blotch_Apple": 0,
+            "Normal_Apple": 1,
+            "Rot_Apple": 2,
+            "Scab_Apple": 3
+        }
+    },
+    {
+        "Model type": "custom",
+        "Timestamp": "2023-06-23 11:59:26.156179",
+        "Model accuracy": 63.52,
+        "Model architecture": "<bound method Module.state_dict of CNNModel(\n  (conv1): Conv2d(3, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (conv2): Conv2d(24, 44, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (fc1): Linear(in_features=137984, out_features=64, bias=True)\n  (fc2): Linear(in_features=64, out_features=96, bias=True)\n  (fc3): Linear(in_features=96, out_features=4, bias=True)\n)>",
+        "Test data": "../data/Original_cropped_aug_extended/Test",
+        "Number of classes": 4,
+        "Model mapping": {
+            "Blotch_Apple": 0,
+            "Normal_Apple": 1,
+            "Rot_Apple": 2,
+            "Scab_Apple": 3
+        }
+    },
+    {
+        "Model type": "custom",
+        "Timestamp": "2023-06-23 12:03:52.337762",
+        "Model accuracy": 69.26,
+        "Model architecture": "<bound method Module.state_dict of CNNModel(\n  (conv1): Conv2d(3, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (conv2): Conv2d(24, 44, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (fc1): Linear(in_features=137984, out_features=64, bias=True)\n  (fc2): Linear(in_features=64, out_features=96, bias=True)\n  (fc3): Linear(in_features=96, out_features=4, bias=True)\n)>",
+        "Test data": "../data/Original_cropped_aug_extended/Test",
+        "Number of classes": 4,
+        "Model mapping": {
+            "Blotch_Apple": 0,
+            "Normal_Apple": 1,
+            "Rot_Apple": 2,
+            "Scab_Apple": 3
+        }
+    },
+    {
+        "Model type": "resnet",
+        "Timestamp": "2023-06-23 12:22:26.096352",
+        "Model accuracy": 82.79,
+        "Model architecture": "<bound method Module.state_dict of ResNet(\n  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)\n  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n  (relu): ReLU(inplace=True)\n  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)\n  (layer1): Sequential(\n    (0): BasicBlock(\n      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    )\n    (1): BasicBlock(\n      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    )\n  )\n  (layer2): Sequential(\n    (0): BasicBlock(\n      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (downsample): Sequential(\n        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)\n        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n    )\n    (1): BasicBlock(\n      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    )\n  )\n  (layer3): Sequential(\n    (0): BasicBlock(\n      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (downsample): Sequential(\n        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)\n        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n    )\n    (1): BasicBlock(\n      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    )\n  )\n  (layer4): Sequential(\n    (0): BasicBlock(\n      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (downsample): Sequential(\n        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)\n        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n    )\n    (1): BasicBlock(\n      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    )\n  )\n  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))\n  (fc): Linear(in_features=512, out_features=4, bias=True)\n)>",
+        "Test data": "../data/Original_cropped_aug_extended/Test",
+        "Number of classes": 4,
+        "Model mapping": {
+            "Blotch_Apple": 0,
+            "Normal_Apple": 1,
+            "Rot_Apple": 2,
+            "Scab_Apple": 3
+        }
+    },
+    {
+        "Model type": "resnet",
+        "Timestamp": "2023-06-23 12:42:28.800361",
+        "Model accuracy": 59.63,
+        "Model architecture": "<bound method Module.state_dict of ResNet(\n  (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)\n  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n  (relu): ReLU(inplace=True)\n  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)\n  (layer1): Sequential(\n    (0): BasicBlock(\n      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    )\n    (1): BasicBlock(\n      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    )\n  )\n  (layer2): Sequential(\n    (0): BasicBlock(\n      (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (downsample): Sequential(\n        (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)\n        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n    )\n    (1): BasicBlock(\n      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    )\n  )\n  (layer3): Sequential(\n    (0): BasicBlock(\n      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (downsample): Sequential(\n        (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)\n        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n    )\n    (1): BasicBlock(\n      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    )\n  )\n  (layer4): Sequential(\n    (0): BasicBlock(\n      (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (downsample): Sequential(\n        (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)\n        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      )\n    )\n    (1): BasicBlock(\n      (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n      (relu): ReLU(inplace=True)\n      (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)\n      (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)\n    )\n  )\n  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))\n  (fc): Linear(in_features=512, out_features=4, bias=True)\n)>",
+        "Test data": "../data/Original_cropped_aug_extended/Test",
+        "Number of classes": 4,
+        "Model mapping": {
+            "Blotch_Apple": 0,
+            "Normal_Apple": 1,
+            "Rot_Apple": 2,
+            "Scab_Apple": 3
+        }
+    },
+    {
+        "Model type": "custom",
+        "Timestamp": "2023-06-27 13:42:45.089358",
+        "Model accuracy": 67.83,
+        "Model architecture": "<bound method Module.state_dict of CNNModel(\n  (conv1): Conv2d(3, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (conv2): Conv2d(24, 44, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (fc1): Linear(in_features=137984, out_features=64, bias=True)\n  (fc2): Linear(in_features=64, out_features=96, bias=True)\n  (fc3): Linear(in_features=96, out_features=4, bias=True)\n)>",
+        "Test data": "../data/Original_cropped_aug_extended/Test",
+        "Number of classes": 4,
+        "Model mapping": {
+            "Blotch_Apple": 0,
+            "Normal_Apple": 1,
+            "Rot_Apple": 2,
+            "Scab_Apple": 3
+        }
+    },
+    {
+        "Model type": "custom",
+        "Timestamp": "2023-06-27 13:47:15.645497",
+        "Model accuracy": 63.11,
+        "Model architecture": "<bound method Module.state_dict of CNNModel(\n  (conv1): Conv2d(3, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (conv2): Conv2d(24, 44, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (fc1): Linear(in_features=137984, out_features=64, bias=True)\n  (fc2): Linear(in_features=64, out_features=96, bias=True)\n  (fc3): Linear(in_features=96, out_features=4, bias=True)\n)>",
+        "Test data": "../data/Original_cropped/Test",
+        "Number of classes": 4,
+        "Model mapping": {
+            "Blotch_Apple": 0,
+            "Normal_Apple": 1,
+            "Rot_Apple": 2,
+            "Scab_Apple": 3
+        }
+    },
+    {
+        "Model type": "custom",
+        "Timestamp": "2023-06-27 14:05:31.704385",
+        "Model accuracy": 68.65,
+        "Model architecture": "<bound method Module.state_dict of CNNModel(\n  (conv1): Conv2d(3, 24, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (conv2): Conv2d(24, 44, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))\n  (fc1): Linear(in_features=137984, out_features=64, bias=True)\n  (fc2): Linear(in_features=64, out_features=96, bias=True)\n  (fc3): Linear(in_features=96, out_features=4, bias=True)\n)>",
+        "Test data": "../data/Original_cropped_aug_ex/Test",
+        "Number of classes": 4,
+        "Model mapping": {
+            "Blotch_Apple": 0,
+            "Normal_Apple": 1,
+            "Rot_Apple": 2,
+            "Scab_Apple": 3
+        }
     }
 ]

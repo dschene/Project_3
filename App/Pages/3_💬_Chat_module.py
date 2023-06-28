@@ -16,12 +16,12 @@ else:
     
     possible_answers = [f'The total size of this batch is {sum(batch_dict.values())}',
                         f'The current date/time is {datetime.now()}',
-                        f'I am not in a position to answer questions regarding topics other than apples']
+                        f'I am not in a position to answer questions about topics other than apples']
     
     if len(batch_dict) == 2:
         possible_answers.extend([f'The number of bad apples in this batch is {batch_dict["rottenapples"]}',
                                  f'The number of good apples in this batch is {batch_dict["freshapples"]}',
-                                 f'The percentages of good vs. bad apples in this batch are {(batch_dict["freshapples"] / sum(batch_dict.values()))*100} and {(batch_dict["rottenapples"] / sum(batch_dict.values()))*100} respectively.'])
+                                 f'The percentages of good and bad apples in this batch are {(batch_dict["freshapples"] / sum(batch_dict.values()))*100} and {(batch_dict["rottenapples"] / sum(batch_dict.values()))*100} respectively.'])
     elif len(batch_dict) == 4:
         possible_answers.extend([f'This batch contains {batch_dict["Blotch_Apple"]} apples with blotch.',
                                  f'This batch contains {batch_dict["Rot_Apple"]} rotten apples.',
@@ -33,8 +33,3 @@ else:
 
     if user_question:
         st.write(possible_answers[similarity_scores.argmax()])
-    
-
-    
-
-    

@@ -8,11 +8,11 @@ from torchvision.datasets import ImageFolder
 from torchvision import transforms
 from torch.utils.data import DataLoader
 from project_modules.DataClass import CustomDataset, get_mean_and_std
-from project_modules.CNN import CNNModel
+from project_modules.CNN import CNNModel, CNNModel2
 from tqdm import tqdm
 
 # training data directory
-path_to_traindata = '../data/Original_cropped_aug/Train'
+path_to_traindata = '../data/Original_cropped_aug_ex/Train'
 
 # function for displaying an img
 def display_image_from_tensor(tensor):
@@ -43,7 +43,7 @@ test_loader_formeanstd = DataLoader(ImageFolder(root=path_to_traindata, transfor
 
 # calling function for getting mean and std -> input for the 'actual' normalization transformation
 mean, std = get_mean_and_std(test_loader_formeanstd)
-
+mean_2, std_2 = [0.6327, 0.5601, 0.4343], [0.2058, 0.2333, 0.2498]
 # transformations to be applied to training data
 
 N, M = 2, 14
@@ -52,22 +52,22 @@ train_transforms = transforms.Compose([
     #transforms.RandomCrop(32, 4),
     transforms.Resize((224, 224)),
     #transforms.RandAugment(N,M),
-    transforms.RandomVerticalFlip(p=0.5),
-    transforms.RandomHorizontalFlip(p=0.5),
-    transforms.RandomRotation(degrees=(30, 70)),
+    #transforms.RandomVerticalFlip(p=0.5),
+    #transforms.RandomHorizontalFlip(p=0.5),
+    #transforms.RandomRotation(degrees=(30, 70)),
     transforms.ToTensor(),
-    transforms.Normalize(mean, std),
+    transforms.Normalize(mean_2, std_2),
 ])
 
 # option 1: creating a custom dataset with the Dataset() class
 train_dataset_from_c = CustomDataset(path_to_traindata, train_transforms)
 # # making a DataLoader object for the training data
-train_dataloader_from_c = DataLoader(train_dataset_from_c, batch_size=64, shuffle=True)
+train_dataloader_from_c = DataLoader(train_dataset_from_c, batch_size=42, shuffle=True)
 
 # option 2: creating a dataset using ImageFolder() 
 train_dataset_from_f = ImageFolder(path_to_traindata, transform=train_transforms)
 # # making a DataLoader object for the training data
-train_dataloder_from_f = DataLoader(train_dataset_from_f, batch_size=64, shuffle=True)
+train_dataloder_from_f = DataLoader(train_dataset_from_f, batch_size=42, shuffle=True)
 
 # both variations have the same class-to-label mapping:
 (train_dataset_from_c.class_to_label == train_dataset_from_f.class_to_idx) # == True
@@ -75,7 +75,7 @@ train_dataloder_from_f = DataLoader(train_dataset_from_f, batch_size=64, shuffle
 # creating a model object with 2 or 4 possible output classes
 n_of_classes = len(train_dataset_from_c.class_to_label)
 apples_model = CNNModel(n_of_classes).to(set_device())
-
+apples_model_2 = CNNModel2(n_of_classes).to(set_device())
 # defining loss function and optimizer
 loss_function = nn.CrossEntropyLoss()
 optimizer = optim.Adam(apples_model.parameters(), lr=0.0005)
@@ -125,7 +125,7 @@ def train_model_func(model, trainloader, criterion, optimizer, n_epochs):
 
 # run training
 if __name__ == "__main__":
-    train_model_func(apples_model, train_dataloader_from_c, loss_function, optimizer, 25)
+    train_model_func(apples_model_2, train_dataloader_from_c, loss_function, optimizer, 2)
 
     # store model in 'models' directory
     save_model_path = '../models/custom_model.pth'

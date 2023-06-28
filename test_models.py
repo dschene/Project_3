@@ -12,7 +12,7 @@ from torchvision.datasets import ImageFolder
 from datetime import datetime
 from sklearn.metrics import ConfusionMatrixDisplay
 
-path_to_testdata = '../data/Original_cropped_aug/Test'
+path_to_testdata = '../data/Original_cropped_aug_ex/Test'
 
 # transformation for getting the mean and std of the test set
 test_transforms_formeanstd = transforms.Compose([
@@ -27,7 +27,7 @@ test_loader_formeanstd = DataLoader(ImageFolder(root=path_to_testdata, transform
 
 # calling function for getting mean and std -> input for the 'actual' normalization transformation
 mean, std = get_mean_and_std(test_loader_formeanstd)
-
+mean_2, std_2 = [0.6327, 0.5601, 0.4343], [0.2058, 0.2333, 0.2498]
 # defining transformations on test data
 test_transforms = transforms.Compose([
     transforms.Resize((224,224)),
@@ -35,14 +35,14 @@ test_transforms = transforms.Compose([
     # transforms.RandomVerticalFlip(p=0.5),
     # transforms.RandomRotation(degrees=(30, 70)),
     transforms.ToTensor(),
-    transforms.Normalize(mean, std)
+    transforms.Normalize(mean_2, std_2)
 ])
 
 # creating a custom class and dataloader for test data
 test_dataset = CustomDataset(path_to_testdata, test_transforms)
 test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
 
-#print(test_dataset.class_to_label)
+print(test_dataset.class_to_label)
 
 n_of_classes = len(test_dataset.class_to_label)
 label_list = list(test_dataset.class_to_label.keys())
