@@ -12,7 +12,7 @@ from project_modules.DataClass import get_mean_and_std
 
 
 # path to train data
-train_data_path = '../data/Original_cropped_aug_extended/Train'
+train_data_path = '../data/Original_cropped_wo_28/Train'
 
 # transformation for getting the mean and std of the train set
 test_transforms_formeanstd = transforms.Compose([
@@ -62,7 +62,7 @@ loss_function = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # run training
-train_model_func(model, train_loader, loss_function, optimizer, 10)
+train_model_func(model, train_loader, loss_function, optimizer, 5)
 
 # save model
 save_model_path = f'../models/resnet_model.pth'
