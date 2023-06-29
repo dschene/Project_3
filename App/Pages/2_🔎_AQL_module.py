@@ -13,7 +13,7 @@ def a_or_j(max_a, bad_a):
     else:
         return 'rejected'
     
-st.title('Acceptance Quality Levels')
+st.title('Acceptable Quality Levels')
 
 if 'Batch_dict' not in st.session_state:
     st.write('Please upload a batch first, then return to this page.')
@@ -25,11 +25,13 @@ else:
 
     st.subheader("Default inspection level is set to I")
     
-    st.write(f'Uploaded batch of size {total_size} contains:')
+    #st.write(f'Uploaded batch of size {total_size} contains:')
     
-    for k, v in st.session_state['Batch_dict'].items():
-        st.write(f'{v} instances of {k}')
+    #for k, v in st.session_state['Batch_dict'].items():
+        #st.write(f'{v} instances of {k}')
     
+    st.bar_chart(st.session_state['Batch_dict'])
+
     if st.button("Perform AQL inspection"):
             if len(batch) == 2:
                 bad_apples = batch['rottenapples']

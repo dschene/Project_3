@@ -12,7 +12,7 @@ from project_modules.CNN import CNNModel, CNNModel2
 from tqdm import tqdm
 
 # training data directory
-path_to_traindata = '../data/Original_cropped_wo_28/Train'
+path_to_traindata = '../data/Original_cropped_do_29/Train'
 
 # function for displaying an img
 def display_image_from_tensor(tensor):
@@ -50,7 +50,8 @@ N, M = 2, 14
 
 train_transforms = transforms.Compose([
     #transforms.RandomCrop(32, 4),
-    transforms.Resize((224, 224)),
+    #transforms.CenterCrop(128),
+    #transforms.Resize((224, 224)),
     #transforms.RandAugment(N,M),
     #transforms.RandomVerticalFlip(p=0.5),
     #transforms.RandomHorizontalFlip(p=0.5),
@@ -78,7 +79,7 @@ apples_model = CNNModel(n_of_classes).to(set_device())
 apples_model_2 = CNNModel2(n_of_classes).to(set_device())
 # defining loss function and optimizer
 loss_function = nn.CrossEntropyLoss()
-optimizer = optim.Adam(apples_model.parameters(), lr=0.0001)
+optimizer = optim.Adam(apples_model.parameters(), lr=0.0005)
 
 
 # function for training the model
@@ -125,7 +126,7 @@ def train_model_func(model, trainloader, criterion, optimizer, n_epochs):
 
 # run training
 if __name__ == "__main__":
-    train_model_func(apples_model, train_dataloader_from_c, loss_function, optimizer, 15)
+    train_model_func(apples_model, train_dataloader_from_c, loss_function, optimizer, 10)
 
     # store model in 'models' directory
     save_model_path = '../models/custom_model.pth'

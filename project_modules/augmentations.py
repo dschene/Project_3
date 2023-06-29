@@ -18,7 +18,7 @@ def apply_transforms(main_folder_path, standard_transforms, var_transforms):
 
                     for i, t in enumerate(var_transforms):
                         var_img_t = t(img_t)
-                        save_path = f'{folder_path}/' + f"_{str(i)}_" + filename
+                        save_path = f'{folder_path}/' + filename #+ f"_{str(i)}_" + filename
                         save_image(var_img_t.float(), save_path)
                     
                     
@@ -26,17 +26,19 @@ def apply_transforms(main_folder_path, standard_transforms, var_transforms):
 
 transformations_all = transforms.Compose([
     transforms.ToTensor(),
-    transforms.Resize((224,224))
+    transforms.CenterCrop(156),
+    transforms.Resize((224,224)),
+    
 ])
 
 transformations_var = [
-    transforms.RandomHorizontalFlip(p=1), 
+    #transforms.RandomHorizontalFlip(p=1), 
     transforms.RandomVerticalFlip(p=1),
-    transforms.RandomRotation(degrees=(0, 180))
+    #transforms.RandomRotation(degrees=(0, 180)),
     #transforms.RandomPerspective(distortion_scale=0.6, p=1)
     ]
 
 if __name__ == "__main__":
 
-    apply_transforms('../data/Original_cropped_wo_28/Test', transformations_all, transformations_var)
+    apply_transforms('../data/Original_cropped_do_29/Test', transformations_all, transformations_var)
 
